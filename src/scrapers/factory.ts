@@ -9,6 +9,7 @@ import HapoalimScraper from './hapoalim';
 import { type Scraper, type ScraperCredentials, type ScraperOptions } from './interface';
 import IsracardScraper from './isracard';
 import LeumiScraper from './leumi';
+import LeumiTradeScraper from './leumi-trade';
 import MassadScraper from './massad';
 import MaxScraper from './max';
 import MercantileScraper from './mercantile';
@@ -26,6 +27,8 @@ export default function createScraper(options: ScraperOptions): Scraper<ScraperC
       return new HapoalimScraper(options);
     case CompanyTypes.leumi:
       return new LeumiScraper(options);
+    case CompanyTypes.leumiTrade:
+      return new LeumiTradeScraper(options);
     case CompanyTypes.beyahadBishvilha:
       return new BeyahadBishvilhaScraper(options);
     case CompanyTypes.mizrahi:

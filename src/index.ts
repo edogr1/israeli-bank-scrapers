@@ -12,6 +12,8 @@ export {
   ScraperScrapingResult,
 } from './scrapers/interface';
 
+export { SecuritiesAccount, SecurityHolding } from './portfolios';
+
 export { default as OneZeroScraper } from './scrapers/one-zero';
 
 export function getPuppeteerConfig() {

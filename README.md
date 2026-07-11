@@ -16,6 +16,7 @@ What you can find here is scrapers for all major Israeli banks and credit card c
 Currently only the following banks are supported:
 - Bank Hapoalim (thanks [@sebikaplun](https://github.com/sebikaplun))
 - Leumi Bank (thanks [@esakal](https://github.com/esakal))
+- Leumi Trade (securities portfolio)
 - Discount Bank
 - Mercantile Bank (thanks [@ezzatq](https://github.com/ezzatq) and [@kfirarad](https://github.com/kfirarad)))
 - Mizrahi Bank (thanks [@baruchiro](https://github.com/baruchiro))
@@ -288,6 +289,16 @@ const credentials = {
 };
 ```
 This scraper supports fetching transaction from up to one year.
+
+## Leumi Trade scraper
+This scraper fetches the securities portfolio (holdings snapshot and portfolio summary) from Leumi Trade. It uses the same credentials as the Bank Leumi scraper:
+```node
+const credentials = {
+  username: <user name>,
+  password: <user password>
+};
+```
+Unlike the other scrapers, the result is returned in the `securitiesAccounts` field instead of `accounts`. Each securities account includes summary fields (total value, cost, daily change, unrealized profit, buying power and the linked account cash balance) and a `holdings` array with the positions (symbol, name, quantity, last price, market value in ILS, cost basis, unrealized profit and portfolio weight). Prices of Tel Aviv Stock Exchange papers are converted from agorot to shekels; prices of foreign papers are kept in their native currency while their market value is reported in ILS.
 
 ## Discount scraper
 This scraper expects the following credentials object:

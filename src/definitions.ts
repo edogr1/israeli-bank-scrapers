@@ -15,6 +15,7 @@ export enum CompanyTypes {
   mercantile = 'mercantile',
   mizrahi = 'mizrahi',
   leumi = 'leumi',
+  leumiTrade = 'leumiTrade',
   massad = 'massad',
   yahav = 'yahav',
   behatsdaa = 'behatsdaa',
@@ -30,6 +31,10 @@ export const SCRAPERS = {
   },
   [CompanyTypes.leumi]: {
     name: 'Bank Leumi',
+    loginFields: ['username', PASSWORD_FIELD],
+  },
+  [CompanyTypes.leumiTrade]: {
+    name: 'Leumi Trade',
     loginFields: ['username', PASSWORD_FIELD],
   },
   [CompanyTypes.mizrahi]: {
